@@ -53,7 +53,7 @@ export default function SupportedForm() {
     // console.log("isEmpty is", isEmpty);
   };
 
-  // TODO - handleClickBack function
+  // handleClickBack function
   const handleClickBack = () => {
     history.push("/understanding");
   };

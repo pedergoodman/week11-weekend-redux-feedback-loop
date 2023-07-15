@@ -11,5 +11,21 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 
 TODO -
+
+Home page things
 [ ] add home page with start survey
-[ ] add back button to feeling form
+[ ] add back button to feeling form that goes home
+[ ] option on feedback page to go home!
+[ ] (maybe) add 'home' btn on all review pages
+
+
+[ ] add sweetalert error messaging for get, post, delete, put requests
+  - GET in App
+  - POST in ReviewForm
+  - DELETE & PUT in Admin
+
+
+
+
+
+

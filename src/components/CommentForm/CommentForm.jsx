@@ -42,7 +42,7 @@ export default function CommentForm() {
     history.push("/review");
   };
 
-  // TODO - handleClickBack function
+  // handleClickBack function
   const handleClickBack = () => {
     history.push("/supported");
   };
