@@ -6,8 +6,8 @@ const pool = require("../modules/pool");
 
 // GET request (get review list from server)
 reviewRouter.get('/', (req, res) => {
-  // sql query 
 
+  // sql query 
   const sqlText = `SELECT * from "feedback" ORDER BY "date"`
 
   pool.query(sqlText)
@@ -15,6 +15,7 @@ reviewRouter.get('/', (req, res) => {
       res.send(result.rows);
     }).catch((err) => {
       console.log('error GETting list from Database');
+      res.sendStatus(500)
     });
 
 });
@@ -23,6 +24,28 @@ reviewRouter.get('/', (req, res) => {
 
 // POST request (post review to server)
 reviewRouter.post('/', (req, res) => {
+  
+  console.log(req.body);
+  const survey = req.body
+
+  const sqlText = `INSERT INTO "feedback" 
+    ("feeling", "understanding", "support", "comments")
+    VALUES ($1, $2, $3, $4)`
+
+
+  const queryParams = [survey.feeling, survey.understanding, survey.support, survey.comment]
+
+  
+
+  pool.query(sqlText, queryParams)
+    .then((result) => {
+      res.sendStatus(201)
+    }).catch((err) => {
+      console.log('error GETting list from Database');
+      res.sendStatus(500)
+    });
+
+
 
 });
 
