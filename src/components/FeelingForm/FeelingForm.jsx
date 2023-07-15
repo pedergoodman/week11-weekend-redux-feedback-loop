@@ -38,7 +38,6 @@ export default function FeelingForm() {
 
   // handleClickNext function
   const handleClickNext = event => {
-    console.log("next clicked! Value is:", feelingValue);
     // validate form input
     if (!feelingValue) {
       setIsEmpty(true);
@@ -51,7 +50,6 @@ export default function FeelingForm() {
       // move to next page
       history.push("/understanding");
     }
-    // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function

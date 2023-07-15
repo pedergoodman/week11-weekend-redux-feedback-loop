@@ -39,7 +39,6 @@ export default function UnderstandingForm() {
 
   // handleClickNext function
   const handleClickNext = event => {
-    console.log("next clicked! Value is:", understandingValue);
     // validate form input
     if (!understandingValue) {
       setIsEmpty(true);
@@ -52,7 +51,6 @@ export default function UnderstandingForm() {
       // move to next page
       history.push("/supported");
     }
-    // console.log("isEmpty is", isEmpty);
   };
 
   // handleClickBack function

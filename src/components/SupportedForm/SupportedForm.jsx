@@ -37,7 +37,6 @@ export default function SupportedForm() {
 
   // handleClickNext function
   const handleClickNext = event => {
-    console.log("next clicked! Value is:", supportedValue);
     // validate form input
     if (!supportedValue) {
       setIsEmpty(true);
@@ -50,7 +49,6 @@ export default function SupportedForm() {
       // move to next page
       history.push("/comment");
     }
-    // console.log("isEmpty is", isEmpty);
   };
 
   // handleClickBack function

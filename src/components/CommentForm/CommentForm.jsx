@@ -13,7 +13,6 @@ import { Button, IconButton, Typography } from "@mui/material";
 // start component Function
 export default function CommentForm() {
   // options for input form
-  const ratings = [1, 2, 3, 4, 5];
   const storeCommentValue = useSelector(store => store.survey.comment);
   const dispatch = useDispatch();
   const history = useHistory();
