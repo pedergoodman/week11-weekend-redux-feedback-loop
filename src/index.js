@@ -16,6 +16,7 @@ const feeling = (state = 0, action) => {
     } else if (action.type === 'ADD_FEELING') {
         return state = 0
     }
+    return state;
 };
 
 // understanding reducer
@@ -25,6 +26,7 @@ const understanding = (state = 0, action) => {
     } else if (action.type === 'ADD_UNDERSTANDING') {
         return state = 0
     }
+    return state;
 };
 
 // support reducer
@@ -34,6 +36,7 @@ const support = (state = 0, action) => {
     } else if (action.type === 'ADD_SUPPORT') {
         return state = 0
     }
+    return state;
 };
 
 // comment reducer
@@ -43,6 +46,7 @@ const comment = (state = '', action) => {
     } else if (action.type === 'ADD_COMMENT') {
         return state = ''
     }
+    return state;
 };
 
 

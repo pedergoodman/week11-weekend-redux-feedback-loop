@@ -21,3 +21,12 @@
 h4 {
   font-style: italic;
 }
+
+#temp-nav {
+  display: flex;
+  list-style: none;
+}
+
+#temp-nav li {
+  margin-left: 6px;
+}
