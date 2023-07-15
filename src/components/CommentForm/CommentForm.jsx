@@ -17,7 +17,7 @@ export default function CommentForm() {
   const ratings = [1, 2, 3, 4, 5];
   const storeCommentValue = useSelector(store => store.survey.comment);
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
 
   // local state to track input selection
   const [commentValue, setCommentValue] = useState("");
@@ -44,20 +44,19 @@ export default function CommentForm() {
     } else {
       // Dispatch to reducer
       dispatch({
-        type: 'COMMENT',
-        payload: commentValue
-      })
+        type: "COMMENT",
+        payload: commentValue,
+      });
       // move to next page
-      history.push('/review')
-
+      history.push("/review");
     }
     // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function
   const handleClickBack = () => {
-    history.push('/supported')
-  }
+    history.push("/supported");
+  };
   return (
     <>
       <Box
@@ -73,25 +72,19 @@ export default function CommentForm() {
         <h3>Any comments you want to leave?</h3>
         <div>
           <TextField
+            multiline
             required
-            id="feeling-input"
-            select
-            label="Select"
-            defaultValue=""
-            value={commentValue}
+            id="outlined-multiline-flexible"
+            label="Add Comment"
+            maxRows={5}
             onChange={handleChange}
-            sx={{ textAlign: "center", width: 175 }}
+            value={commentValue}
             helperText={
               isEmpty ? "please submit a value." : "please add a value"
             }
             error={isEmpty}
-          >
-            {ratings.map(option => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </TextField>
+            sx={{ textAlign: "center", width: 350 }}
+          />
         </div>
         <div className="form-btn-container">
           <IconButton aria-label="next" onClick={handleClickBack}>
