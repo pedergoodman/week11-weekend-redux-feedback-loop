@@ -36,6 +36,7 @@ h4 {
   width: 370px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 form h3 {

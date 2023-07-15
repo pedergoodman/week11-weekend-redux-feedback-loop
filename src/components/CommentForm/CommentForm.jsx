@@ -93,9 +93,10 @@ export default function CommentForm() {
 
           {/* <Button size="large">Home</Button> */}
 
-          <IconButton aria-label="next" onClick={handleClickNext}>
-            <ArrowForwardIcon />
-          </IconButton>
+
+          <Button aria-label="submit" variant="contained" onClick={handleClickNext} endIcon={<ArrowForwardIcon />}>
+            Next
+          </Button>
         </div>
       </Box>
     </>
