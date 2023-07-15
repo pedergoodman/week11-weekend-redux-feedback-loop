@@ -1,0 +1,6 @@
+.form-btn-container {
+  margin: 22px auto 0 auto;
+  width: 370px;
+  display: flex;
+  justify-content: space-between;
+}
