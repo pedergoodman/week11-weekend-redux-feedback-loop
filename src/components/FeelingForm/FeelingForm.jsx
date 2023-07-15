@@ -72,11 +72,10 @@ export default function FeelingForm() {
         <h3>How are you Feeling?</h3>
         <div>
           <TextField
+            select
             required
             id="feeling-input"
-            select
             label="Select"
-            defaultValue=""
             value={feelingValue}
             onChange={handleChange}
             sx={{ textAlign: "center", width: 175 }}

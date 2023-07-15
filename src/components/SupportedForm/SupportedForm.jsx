@@ -73,11 +73,10 @@ export default function SupportedForm() {
         <h3>How well are you being supported?</h3>
         <div>
           <TextField
+            select
             required
             id="feeling-input"
-            select
             label="Select"
-            defaultValue=""
             value={supportedValue}
             onChange={handleChange}
             sx={{ textAlign: "center", width: 175 }}

@@ -75,11 +75,10 @@ export default function UnderstandingForm() {
         <h3>How well are you understanding the content?</h3>
         <div>
           <TextField
+            select
             required
             id="feeling-input"
-            select
             label="Select"
-            defaultValue=""
             value={understandingValue}
             onChange={handleChange}
             sx={{ textAlign: "center", width: 175 }}
