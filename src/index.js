@@ -10,31 +10,31 @@ import logger from 'redux-logger'
 
 // REDUCERS
 // feeling reducer
-const feeling = (state = 0, action) => {
+const feeling = (state = '', action) => {
     if (action.type === 'ADD_FEELING') {
         return state = action.payload
     } else if (action.type === 'CLEAR_FEELING') {
-        return state = 0
+        return state = ''
     }
     return state;
 };
 
 // understanding reducer
-const understanding = (state = 0, action) => {
+const understanding = (state = '', action) => {
     if (action.type === 'ADD_UNDERSTANDING') {
         return state = action.payload
     } else if (action.type === 'CLEAR_UNDERSTANDING') {
-        return state = 0
+        return state = ''
     }
     return state;
 };
 
 // support reducer
-const support = (state = 0, action) => {
+const support = (state = '', action) => {
     if (action.type === 'ADD_SUPPORT') {
         return state = action.payload
     } else if (action.type === 'CLEAR_SUPPORT') {
-        return state = 0
+        return state = ''
     }
     return state;
 };
