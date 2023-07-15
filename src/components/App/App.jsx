@@ -15,59 +15,72 @@ import UnderstandingForm from "../UnderstandingForm/UnderstandingForm";
 import Header from "../Header/Header";
 import Admin from "../Admin/Admin";
 
-
-
 function App() {
   return (
     <Router>
       {/* TEMP Nav bar to help facilitate  */}
       <nav>
         <ul id="temp-nav">
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/admin'>Admin</Link></li>
-            <li><Link to='/feeling'>Feeling</Link></li>
-            <li><Link to='/understanding'>Understanding</Link></li>
-            <li><Link to='/supported'>Supported</Link></li>
-            <li><Link to='/comment'>Comment</Link></li>
-            <li><Link to='/review'>Review</Link></li>
-            <li><Link to='/submitted'>Submitted</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/admin">Admin</Link>
+          </li>
+          <li>
+            <Link to="/feeling">Feeling</Link>
+          </li>
+          <li>
+            <Link to="/understanding">Understanding</Link>
+          </li>
+          <li>
+            <Link to="/supported">Supported</Link>
+          </li>
+          <li>
+            <Link to="/comment">Comment</Link>
+          </li>
+          <li>
+            <Link to="/review">Review</Link>
+          </li>
+          <li>
+            <Link to="/submitted">Submitted</Link>
+          </li>
         </ul>
       </nav>
 
-        <Header />
+      <Header />
 
-        <Route exact path='/'>
-          <Home />
-        </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
 
-        <Route exact path='/feeling'>
-          <FeelingForm />
-        </Route>
+      <Route exact path="/feeling">
+        <FeelingForm />
+      </Route>
 
-        <Route exact path='/understanding'>
-          <UnderstandingForm />
-        </Route>
+      <Route exact path="/understanding">
+        <UnderstandingForm />
+      </Route>
 
-        <Route exact path='/supported'>
-          <SupportedForm />
-        </Route>
+      <Route exact path="/supported">
+        <SupportedForm />
+      </Route>
 
-        <Route exact path='/comment'>
-          <CommentForm />
-        </Route>
+      <Route exact path="/comment">
+        <CommentForm />
+      </Route>
 
-        <Route exact path='/review'>
-          <ReviewForm />
-        </Route>
+      <Route exact path="/review">
+        <ReviewForm />
+      </Route>
 
-        <Route exact path='/submitted'>
-          <FormSubmitted />
-        </Route>
+      <Route exact path="/submitted">
+        <FormSubmitted />
+      </Route>
 
-        <Route exact path='/admin'>
-          <Admin />
-        </Route>
-
+      <Route exact path="/admin">
+        <Admin />
+      </Route>
     </Router>
   );
 }
