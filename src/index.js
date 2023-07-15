@@ -34,7 +34,7 @@ const survey = (state = { feeling: '', understanding: '', support: '', comment: 
 
 const reviewsList = (state = [], action) => {
     if (action.type === 'SET_REVIEW_LIST') {
-        return [action.payload]
+        return action.payload
     }
 
 
