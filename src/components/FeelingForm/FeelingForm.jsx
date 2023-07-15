@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./FeelingForm.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { useHistory } from "react-router-dom/";
 
 // Material UI imports
 import Box from "@mui/material/Box";
@@ -14,42 +16,46 @@ import MenuItem from "@mui/material/MenuItem";
 export default function FeelingForm() {
   // options for input form
   const ratings = [1, 2, 3, 4, 5];
+  const storeFeelingValue = useSelector(store => store.feeling);
+  const dispatch = useDispatch();
+  const history = useHistory()
 
-  // local state to track input value of form
+  // local state to track input selection
   const [feelingValue, setFeelingValue] = useState("");
   // form validation state
-  const [ isEmpty, setIsEmpty ] = useState(false)
+  const [isEmpty, setIsEmpty] = useState(false);
 
-  // pick value
+  // update selected value, handle form validation condition
   const handleChange = event => {
     setFeelingValue(event.target.value);
-    setIsEmpty(false)
+    setIsEmpty(false);
   };
 
   // TODO - useEffect to load saved state from store
+  useEffect(() => {
+    setFeelingValue(storeFeelingValue);
+  }, []);
 
   // TODO - handleClickNext function
   const handleClickNext = event => {
     console.log("next clicked! Value is:", feelingValue);
     // validate form input
     if (!feelingValue) {
-      setIsEmpty(true)
+      setIsEmpty(true);
     } else {
       // TODO - Dispatch to reducer
-
+      dispatch({
+        type: 'ADD_FEELING',
+        payload: feelingValue
+      })
       // TODO - move to next page
+      history.push('/understanding')
 
     }
     console.log("isEmpty is", isEmpty);
-
-
   };
 
   // TODO - handleClickBack function
-
-  
-
-  
 
   return (
     <>
