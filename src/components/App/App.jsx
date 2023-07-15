@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
 import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // import Components
 import CommentForm from "../CommentForm/CommentForm";
@@ -16,6 +17,29 @@ import Header from "../Header/Header";
 import Admin from "../Admin/Admin";
 
 function App() {
+  const dispatch = useDispatch();
+
+  const refreshReviewList = () => {
+    axios
+      .get("/reviews")
+      .then(result => {
+        console.log(result.data);
+
+        // send DB list in to save in store
+        dispatch({
+          type: "SET_REVIEW_LIST",
+          payload: result.data,
+        });
+      })
+      .catch(err => {
+        console.log("Error GETing review data", err);
+      });
+  };
+
+  useEffect(() => {
+    refreshReviewList();
+  }, []);
+
   return (
     <Router>
       {/* TEMP Nav bar to help facilitate  */}
@@ -71,7 +95,7 @@ function App() {
       </Route>
 
       <Route exact path="/review">
-        <ReviewForm />
+        <ReviewForm refreshReviewList={refreshReviewList}/>
       </Route>
 
       <Route exact path="/submitted">
