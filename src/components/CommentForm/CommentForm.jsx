@@ -9,7 +9,6 @@ import TextField from "@mui/material/TextField";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button, IconButton, Typography } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
 
 // start component Function
 export default function CommentForm() {
