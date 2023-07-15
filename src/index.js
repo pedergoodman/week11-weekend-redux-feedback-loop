@@ -46,7 +46,7 @@ const reviewsList = (state = [], action) => {
 // STORE
 const store = createStore(
     combineReducers({
-        survey
+        survey, reviewsList
     }), applyMiddleware(logger)
 );
 
