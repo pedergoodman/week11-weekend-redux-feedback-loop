@@ -23,8 +23,6 @@ function App() {
     axios
       .get("/reviews")
       .then(result => {
-        console.log(result.data);
-
         // send DB list in to save in store
         dispatch({
           type: "SET_REVIEW_LIST",
@@ -95,7 +93,7 @@ function App() {
       </Route>
 
       <Route exact path="/review">
-        <ReviewForm refreshReviewList={refreshReviewList}/>
+        <ReviewForm refreshReviewList={refreshReviewList} />
       </Route>
 
       <Route exact path="/submitted">
