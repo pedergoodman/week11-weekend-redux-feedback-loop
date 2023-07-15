@@ -9,7 +9,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger'
 
 // SURVEY REDUCER
-const survey = (state = { feeling: '', understanding: '', support: '', comment: '' }, action) => {
+const survey = (state = {}, action) => {
     switch (action.type) {
         case 'FEELING':
             return { ...state, feeling: action.payload }
@@ -24,7 +24,7 @@ const survey = (state = { feeling: '', understanding: '', support: '', comment: 
             return { ...state, comment: action.payload }
             break;
         case 'CLEAR':
-            return { feeling: '', understanding: '', support: '', comment: '' }
+            return {}
             break;
         default:
             return state;
@@ -32,12 +32,12 @@ const survey = (state = { feeling: '', understanding: '', support: '', comment: 
     }
 };
 
+// List of reviews pulled from server
 const reviewsList = (state = [], action) => {
     if (action.type === 'SET_REVIEW_LIST') {
         return action.payload
     }
-
-
+    
     return state;
 };
 

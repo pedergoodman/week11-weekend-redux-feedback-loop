@@ -65,3 +65,8 @@ form h3 {
   align-items: center;
   justify-content: space-between;
 }
+
+
+#submitted-container h2 {
+  margin: 0px 0px 10px 0;
+}
