@@ -17,7 +17,7 @@ const survey = (state = { feeling: '', understanding: '', support: '', comment: 
         case 'UNDERSTANDING':
             return { ...state, understanding: action.payload }
             break;
-            case 'SUPPORT':
+        case 'SUPPORT':
             return { ...state, support: action.payload }
             break;
         case 'COMMENT':
@@ -30,7 +30,18 @@ const survey = (state = { feeling: '', understanding: '', support: '', comment: 
             return state;
             break;
     }
-}
+};
+
+const reviewsList = (state = [], action) => {
+    if (action.type === 'SET_REVIEW_LIST') {
+        return [action.payload]
+    }
+
+
+    return state;
+};
+
+
 
 // STORE
 const store = createStore(
