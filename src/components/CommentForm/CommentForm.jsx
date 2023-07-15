@@ -21,13 +21,10 @@ export default function CommentForm() {
 
   // local state to track input selection
   const [commentValue, setCommentValue] = useState("");
-  // form validation state
-  const [isEmpty, setIsEmpty] = useState(false);
 
   // update selected value, handle form validation condition
   const handleChange = event => {
     setCommentValue(event.target.value);
-    setIsEmpty(false);
   };
 
   // useEffect to load saved state from store
@@ -37,11 +34,6 @@ export default function CommentForm() {
 
   // handleClickNext function
   const handleClickNext = event => {
-    console.log("next clicked! Value is:", commentValue);
-    // validate form input
-    if (!commentValue) {
-      setIsEmpty(true);
-    } else {
       // Dispatch to reducer
       dispatch({
         type: "COMMENT",
@@ -49,8 +41,6 @@ export default function CommentForm() {
       });
       // move to next page
       history.push("/review");
-    }
-    // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function
@@ -79,10 +69,6 @@ export default function CommentForm() {
             maxRows={5}
             onChange={handleChange}
             value={commentValue}
-            helperText={
-              isEmpty ? "please submit a value." : "please add a value"
-            }
-            error={isEmpty}
             sx={{ textAlign: "center", width: 350 }}
           />
         </div>
