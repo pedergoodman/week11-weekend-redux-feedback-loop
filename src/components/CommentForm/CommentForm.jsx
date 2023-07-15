@@ -27,7 +27,9 @@ export default function CommentForm() {
 
   // useEffect to load saved state from store
   useEffect(() => {
-    setCommentValue(storeCommentValue);
+    if (storeCommentValue) {
+      setCommentValue(storeCommentValue);
+    }
   }, []);
 
   // handleClickNext function

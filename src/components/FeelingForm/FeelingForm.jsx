@@ -33,7 +33,9 @@ export default function FeelingForm() {
 
   // useEffect to load saved state from store
   useEffect(() => {
-    setFeelingValue(storeFeelingValue);
+    if (storeFeelingValue) {
+      setFeelingValue(storeFeelingValue)
+    }
   }, []);
 
   // handleClickNext function

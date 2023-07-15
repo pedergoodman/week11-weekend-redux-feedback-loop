@@ -34,7 +34,10 @@ export default function UnderstandingForm() {
 
   // useEffect to load saved state from store
   useEffect(() => {
-    setUnderstandingValue(storeUnderstandingValue);
+
+    if (storeUnderstandingValue) {
+      setUnderstandingValue(storeUnderstandingValue);
+    }
   }, []);
 
   // handleClickNext function

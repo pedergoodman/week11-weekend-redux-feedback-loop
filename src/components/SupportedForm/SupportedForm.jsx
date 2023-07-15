@@ -32,7 +32,9 @@ export default function SupportedForm() {
 
   // useEffect to load saved state from store
   useEffect(() => {
-    setSupportedValue(storeSupportedValue);
+    if (storeSupportedValue) {
+      setSupportedValue(storeSupportedValue);
+    }
   }, []);
 
   // handleClickNext function
