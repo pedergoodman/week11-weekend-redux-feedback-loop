@@ -15,13 +15,13 @@ const survey = (state = { feeling: '', understanding: '', support: '', comment: 
             return { ...state, feeling: action.payload }
             break;
         case 'UNDERSTANDING':
-            return { ...state, feeling: action.payload }
+            return { ...state, understanding: action.payload }
             break;
             case 'SUPPORT':
-            return { ...state, feeling: action.payload }
+            return { ...state, support: action.payload }
             break;
         case 'COMMENT':
-            return { ...state, feeling: action.payload }
+            return { ...state, comment: action.payload }
             break;
         case 'CLEAR':
             return { feeling: '', understanding: '', support: '', comment: '' }
