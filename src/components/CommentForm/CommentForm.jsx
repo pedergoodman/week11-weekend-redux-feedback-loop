@@ -51,11 +51,6 @@ export default function CommentForm() {
       <Box
         className="form-container"
         component="form"
-        sx={{
-          textAlign: "center",
-          width: "fit-content",
-          margin: "auto",
-        }}
         noValidate
         autoComplete="off"
       >
@@ -64,7 +59,7 @@ export default function CommentForm() {
           <TextField
             multiline
             required
-            id="outlined-multiline-flexible"
+            id="comment-input"
             label="Add Comment"
             maxRows={5}
             onChange={handleChange}

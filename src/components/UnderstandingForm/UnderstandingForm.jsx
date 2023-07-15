@@ -63,11 +63,6 @@ export default function UnderstandingForm() {
       <Box
         className="form-container"
         component="form"
-        sx={{
-          textAlign: "center",
-          width: "fit-content",
-          margin: "auto",
-        }}
         noValidate
         autoComplete="off"
       >
@@ -76,14 +71,14 @@ export default function UnderstandingForm() {
           <TextField
             select
             required
-            id="feeling-input"
+            id="understanding-input"
             label="Select"
             value={understandingValue}
             onChange={handleChange}
             sx={{ textAlign: "center", width: 175 }}
-            helperText={
+            /* helperText={
               isEmpty ? "please submit a value." : "please add a value"
-            }
+            } */
             error={isEmpty}
           >
             {ratings.map(option => (

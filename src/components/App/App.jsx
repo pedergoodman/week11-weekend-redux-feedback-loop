@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 // import Components
 import CommentForm from "../CommentForm/CommentForm";
 import FeelingForm from "../FeelingForm/FeelingForm";
-import FormSubmitted from "../FormSubmitted/FormSubmitted";
+import Submitted from "../Submitted/Submitted";
 import Home from "../Home/Home";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import SupportedForm from "../SupportedForm/SupportedForm";
@@ -97,7 +97,7 @@ function App() {
       </Route>
 
       <Route exact path="/submitted">
-        <FormSubmitted />
+        <Submitted />
       </Route>
 
       <Route exact path="/admin">

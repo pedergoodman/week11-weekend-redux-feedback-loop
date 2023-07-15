@@ -60,11 +60,6 @@ export default function SupportedForm() {
       <Box
         className="form-container"
         component="form"
-        sx={{
-          textAlign: "center",
-          width: "fit-content",
-          margin: "auto",
-        }}
         noValidate
         autoComplete="off"
       >
@@ -73,14 +68,14 @@ export default function SupportedForm() {
           <TextField
             select
             required
-            id="feeling-input"
+            id="supported-input"
             label="Select"
             value={supportedValue}
             onChange={handleChange}
             sx={{ textAlign: "center", width: 175 }}
-            helperText={
+            /* helperText={
               isEmpty ? "please submit a value." : "please add a value"
-            }
+            } */
             error={isEmpty}
           >
             {ratings.map(option => (
