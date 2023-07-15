@@ -13,7 +13,7 @@ import logger from 'redux-logger'
 const feeling = (state = '', action) => {
     if (action.type === 'ADD_FEELING') {
         return state = action.payload
-    } else if (action.type === 'CLEAR_FEELING') {
+    } else if (action.type === 'CLEAR_FORM') {
         return state = ''
     }
     return state;
@@ -23,7 +23,7 @@ const feeling = (state = '', action) => {
 const understanding = (state = '', action) => {
     if (action.type === 'ADD_UNDERSTANDING') {
         return state = action.payload
-    } else if (action.type === 'CLEAR_UNDERSTANDING') {
+    } else if (action.type === 'CLEAR_FORM') {
         return state = ''
     }
     return state;
@@ -33,7 +33,7 @@ const understanding = (state = '', action) => {
 const support = (state = '', action) => {
     if (action.type === 'ADD_SUPPORT') {
         return state = action.payload
-    } else if (action.type === 'CLEAR_SUPPORT') {
+    } else if (action.type === 'CLEAR_FORM') {
         return state = ''
     }
     return state;
@@ -43,7 +43,7 @@ const support = (state = '', action) => {
 const comment = (state = '', action) => {
     if (action.type === 'ADD_COMMENT') {
         return state = action.payload
-    } else if (action.type === 'CLEAR_COMMENT') {
+    } else if (action.type === 'CLEAR_FORM') {
         return state = ''
     }
     return state;
