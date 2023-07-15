@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 import { useHistory } from "react-router-dom/";
 
@@ -10,24 +11,31 @@ import { Button, IconButton, Typography } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 
 // start component Function
-export default function ReviewForm() {
-
+export default function ReviewForm({ refreshReviewList }) {
   const survey = useSelector(store => store.survey);
+
   const history = useHistory();
 
   // handleClickNext function
   const handleClickSubmit = event => {
-    console.log("Submit clicked! Survey is:", survey);
-    // TODO - POST to DB
+    // console.log("Submit clicked! Survey is:", survey);
 
+    // POST to DB
+    axios
+      .post("/reviews", survey)
+      .then(result => {
+        // refresh review list
+        refreshReviewList();
 
-    // move to next page
-    history.push("/submitted");
-
-    // console.log("isEmpty is", isEmpty);
+        // move to submitted page
+        history.push("/submitted");
+      })
+      .catch(err => {
+        console.log("Error POSTing review", err);
+      });
   };
 
-  // TODO - handleClickBack function
+  // handleClickBack function
   const handleClickBack = () => {
     history.push("/comment");
   };
