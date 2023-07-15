@@ -15,9 +15,11 @@ import MenuItem from "@mui/material/MenuItem";
 export default function UnderstandingForm() {
   // options for input form
   const ratings = [1, 2, 3, 4, 5];
-  const storeUnderstandingValue = useSelector(store => store.survey.understanding);
+  const storeUnderstandingValue = useSelector(
+    store => store.survey.understanding
+  );
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
 
   // local state to track input selection
   const [understandingValue, setUnderstandingValue] = useState("");
@@ -44,25 +46,24 @@ export default function UnderstandingForm() {
     } else {
       // Dispatch to reducer
       dispatch({
-        type: 'UNDERSTANDING',
-        payload: understandingValue
-      })
+        type: "UNDERSTANDING",
+        payload: understandingValue,
+      });
       // move to next page
-      history.push('/supported')
-
+      history.push("/supported");
     }
     // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function
   const handleClickBack = () => {
-    history.push('/feeling')
-  }
-
+    history.push("/feeling");
+  };
 
   return (
     <>
       <Box
+        className="form-container"
         component="form"
         sx={{
           textAlign: "center",
@@ -101,7 +102,12 @@ export default function UnderstandingForm() {
 
           {/* <Button size="large">Home</Button> */}
 
-          <Button aria-label="submit" variant="contained" onClick={handleClickNext} endIcon={<ArrowForwardIcon />}>
+          <Button
+            aria-label="submit"
+            variant="contained"
+            onClick={handleClickNext}
+            endIcon={<ArrowForwardIcon />}
+          >
             Next
           </Button>
         </div>

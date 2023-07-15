@@ -34,22 +34,24 @@ export default function CommentForm() {
 
   // handleClickNext function
   const handleClickNext = event => {
-      // Dispatch to reducer
-      dispatch({
-        type: "COMMENT",
-        payload: commentValue,
-      });
-      // move to next page
-      history.push("/review");
+    // Dispatch to reducer
+    dispatch({
+      type: "COMMENT",
+      payload: commentValue,
+    });
+    // move to next page
+    history.push("/review");
   };
 
   // TODO - handleClickBack function
   const handleClickBack = () => {
     history.push("/supported");
   };
+
   return (
     <>
       <Box
+        className="form-container"
         component="form"
         sx={{
           textAlign: "center",
@@ -79,8 +81,12 @@ export default function CommentForm() {
 
           {/* <Button size="large">Home</Button> */}
 
-
-          <Button aria-label="submit" variant="contained" onClick={handleClickNext} endIcon={<ArrowForwardIcon />}>
+          <Button
+            aria-label="submit"
+            variant="contained"
+            onClick={handleClickNext}
+            endIcon={<ArrowForwardIcon />}
+          >
             Next
           </Button>
         </div>

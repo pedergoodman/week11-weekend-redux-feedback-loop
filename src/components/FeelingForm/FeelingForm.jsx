@@ -18,7 +18,7 @@ export default function FeelingForm() {
   const ratings = [1, 2, 3, 4, 5];
   const storeFeelingValue = useSelector(store => store.survey.feeling);
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
 
   // local state to track input selection
   const [feelingValue, setFeelingValue] = useState("");
@@ -45,12 +45,11 @@ export default function FeelingForm() {
     } else {
       // Dispatch to reducer
       dispatch({
-        type: 'FEELING',
-        payload: feelingValue
-      })
+        type: "FEELING",
+        payload: feelingValue,
+      });
       // move to next page
-      history.push('/understanding')
-
+      history.push("/understanding");
     }
     // console.log("isEmpty is", isEmpty);
   };
@@ -60,6 +59,7 @@ export default function FeelingForm() {
   return (
     <>
       <Box
+        className="form-container"
         component="form"
         sx={{
           textAlign: "center",
@@ -98,7 +98,12 @@ export default function FeelingForm() {
 
           {/* <Button size="large">Home</Button> */}
 
-          <Button aria-label="submit" variant="contained" onClick={handleClickNext} endIcon={<ArrowForwardIcon />}>
+          <Button
+            aria-label="submit"
+            variant="contained"
+            onClick={handleClickNext}
+            endIcon={<ArrowForwardIcon />}
+          >
             Next
           </Button>
         </div>

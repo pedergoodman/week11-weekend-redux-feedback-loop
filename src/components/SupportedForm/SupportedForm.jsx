@@ -17,7 +17,7 @@ export default function SupportedForm() {
   const ratings = [1, 2, 3, 4, 5];
   const storeSupportedValue = useSelector(store => store.survey.support);
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
 
   // local state to track input selection
   const [supportedValue, setSupportedValue] = useState("");
@@ -44,23 +44,23 @@ export default function SupportedForm() {
     } else {
       // Dispatch to reducer
       dispatch({
-        type: 'SUPPORT',
-        payload: supportedValue
-      })
+        type: "SUPPORT",
+        payload: supportedValue,
+      });
       // move to next page
-      history.push('/comment')
-
+      history.push("/comment");
     }
     // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function
   const handleClickBack = () => {
-    history.push('/understanding')
-  }
+    history.push("/understanding");
+  };
   return (
     <>
       <Box
+        className="form-container"
         component="form"
         sx={{
           textAlign: "center",
@@ -99,7 +99,12 @@ export default function SupportedForm() {
 
           {/* <Button size="large">Home</Button> */}
 
-          <Button aria-label="submit" variant="contained" onClick={handleClickNext} endIcon={<ArrowForwardIcon />}>
+          <Button
+            aria-label="submit"
+            variant="contained"
+            onClick={handleClickNext}
+            endIcon={<ArrowForwardIcon />}
+          >
             Next
           </Button>
         </div>
