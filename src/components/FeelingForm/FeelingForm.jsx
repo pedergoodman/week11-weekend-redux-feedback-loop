@@ -52,7 +52,7 @@ export default function FeelingForm() {
       history.push('/understanding')
 
     }
-    console.log("isEmpty is", isEmpty);
+    // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function

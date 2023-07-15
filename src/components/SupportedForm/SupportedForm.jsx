@@ -15,7 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 export default function SupportedForm() {
   // options for input form
   const ratings = [1, 2, 3, 4, 5];
-  const storeSupportedValue = useSelector(store => store.survey.supported);
+  const storeSupportedValue = useSelector(store => store.survey.support);
   const dispatch = useDispatch();
   const history = useHistory()
 
@@ -44,18 +44,20 @@ export default function SupportedForm() {
     } else {
       // Dispatch to reducer
       dispatch({
-        type: 'SUPPORTED',
+        type: 'SUPPORT',
         payload: supportedValue
       })
       // move to next page
       history.push('/comment')
 
     }
-    console.log("isEmpty is", isEmpty);
+    // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function
-
+  const handleClickBack = () => {
+    history.push('/understanding')
+  }
   return (
     <>
       <Box
@@ -92,7 +94,7 @@ export default function SupportedForm() {
           </TextField>
         </div>
         <div className="form-btn-container">
-          <IconButton aria-label="next" disabled>
+          <IconButton aria-label="next" onClick={handleClickBack}>
             <ArrowBackIcon />
           </IconButton>
 

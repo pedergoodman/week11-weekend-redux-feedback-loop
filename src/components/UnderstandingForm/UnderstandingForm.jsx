@@ -51,10 +51,14 @@ export default function UnderstandingForm() {
       history.push('/supported')
 
     }
-    console.log("isEmpty is", isEmpty);
+    // console.log("isEmpty is", isEmpty);
   };
 
   // TODO - handleClickBack function
+  const handleClickBack = () => {
+    history.push('/feeling')
+  }
+
 
   return (
     <>
@@ -92,7 +96,7 @@ export default function UnderstandingForm() {
           </TextField>
         </div>
         <div className="form-btn-container">
-          <IconButton aria-label="next" disabled>
+          <IconButton aria-label="next" onClick={handleClickBack}>
             <ArrowBackIcon />
           </IconButton>
 
