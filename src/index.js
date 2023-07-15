@@ -8,57 +8,34 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger'
 
-// REDUCERS
-// feeling reducer
-
-
-
-
-
-const feeling = (state = '', action) => {
-    if (action.type === 'ADD_FEELING') {
-        return state = action.payload
-    } else if (action.type === 'CLEAR_FORM') {
-        return state = ''
+// SURVEY REDUCER
+const survey = (state = { feeling: '', understanding: '', support: '', comment: '' }, action) => {
+    switch (action.type) {
+        case 'FEELING':
+            return { ...state, feeling: action.payload }
+            break;
+        case 'UNDERSTANDING':
+            return { ...state, feeling: action.payload }
+            break;
+            case 'SUPPORT':
+            return { ...state, feeling: action.payload }
+            break;
+        case 'COMMENT':
+            return { ...state, feeling: action.payload }
+            break;
+        case 'CLEAR':
+            return { feeling: '', understanding: '', support: '', comment: '' }
+            break;
+        default:
+            return state;
+            break;
     }
-    return state;
-};
-
-// understanding reducer
-const understanding = (state = '', action) => {
-    if (action.type === 'ADD_UNDERSTANDING') {
-        return state = action.payload
-    } else if (action.type === 'CLEAR_FORM') {
-        return state = ''
-    }
-    return state;
-};
-
-// support reducer
-const support = (state = '', action) => {
-    if (action.type === 'ADD_SUPPORT') {
-        return state = action.payload
-    } else if (action.type === 'CLEAR_FORM') {
-        return state = ''
-    }
-    return state;
-};
-
-// comment reducer
-const comment = (state = '', action) => {
-    if (action.type === 'ADD_COMMENT') {
-        return state = action.payload
-    } else if (action.type === 'CLEAR_FORM') {
-        return state = ''
-    }
-    return state;
-};
-
+}
 
 // STORE
 const store = createStore(
     combineReducers({
-       feeling, understanding, support, comment 
+        survey
     }), applyMiddleware(logger)
 );
 

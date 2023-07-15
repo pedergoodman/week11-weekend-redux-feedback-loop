@@ -16,7 +16,7 @@ import MenuItem from "@mui/material/MenuItem";
 export default function FeelingForm() {
   // options for input form
   const ratings = [1, 2, 3, 4, 5];
-  const storeFeelingValue = useSelector(store => store.feeling);
+  const storeFeelingValue = useSelector(store => store.survey.feeling);
   const dispatch = useDispatch();
   const history = useHistory()
 
@@ -31,24 +31,24 @@ export default function FeelingForm() {
     setIsEmpty(false);
   };
 
-  // TODO - useEffect to load saved state from store
+  // useEffect to load saved state from store
   useEffect(() => {
     setFeelingValue(storeFeelingValue);
   }, []);
 
-  // TODO - handleClickNext function
+  // handleClickNext function
   const handleClickNext = event => {
     console.log("next clicked! Value is:", feelingValue);
     // validate form input
     if (!feelingValue) {
       setIsEmpty(true);
     } else {
-      // TODO - Dispatch to reducer
+      // Dispatch to reducer
       dispatch({
-        type: 'ADD_FEELING',
+        type: 'FEELING',
         payload: feelingValue
       })
-      // TODO - move to next page
+      // move to next page
       history.push('/understanding')
 
     }
