@@ -70,3 +70,11 @@ form h3 {
 #submitted-container h2 {
   margin: 0px 0px 10px 0;
 }
+
+.home-btn-container{ 
+  margin: auto;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
