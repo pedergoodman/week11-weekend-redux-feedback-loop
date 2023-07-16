@@ -74,9 +74,6 @@ export default function FeelingForm() {
             value={feelingValue}
             onChange={handleChange}
             sx={{ textAlign: "center", width: 175 }}
-            /* helperText={
-              isEmpty ? "please submit a value." : "please add a value"
-            } */
             error={isEmpty}
           >
             {ratings.map(option => (
@@ -87,12 +84,6 @@ export default function FeelingForm() {
           </TextField>
         </div>
         <div className="form-btn-container">
-          <IconButton aria-label="next" disabled>
-            <ArrowBackIcon />
-          </IconButton>
-
-          {/* <Button size="large">Home</Button> */}
-
           <Button
             aria-label="submit"
             variant="contained"

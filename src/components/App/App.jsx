@@ -40,8 +40,8 @@ function App() {
 
   return (
     <Router>
-      {/* TEMP Nav bar to help facilitate  */}
-      <nav>
+      {/* TEMP Nav bar to help facilitate development */}
+{/*       <nav>
         <ul id="temp-nav">
           <li>
             <Link to="/admin">Admin</Link>
@@ -65,10 +65,10 @@ function App() {
             <Link to="/submitted">Submitted</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
 
       <Header />
-      
+
       <Route exact path="/">
         <FeelingForm />
       </Route>

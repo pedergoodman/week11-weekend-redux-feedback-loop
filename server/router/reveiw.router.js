@@ -8,7 +8,7 @@ const pool = require("../modules/pool");
 reviewRouter.get('/', (req, res) => {
 
   // sql query 
-  const sqlText = `SELECT * from "feedback" ORDER BY "date"`
+  const sqlText = `SELECT * from "feedback" ORDER BY "date" DESC`
 
   pool.query(sqlText)
     .then((result) => {

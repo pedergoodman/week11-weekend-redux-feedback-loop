@@ -73,9 +73,6 @@ export default function CommentForm() {
           <IconButton aria-label="next" onClick={handleClickBack}>
             <ArrowBackIcon />
           </IconButton>
-
-          {/* <Button size="large">Home</Button> */}
-
           <Button
             aria-label="submit"
             variant="contained"

@@ -95,9 +95,6 @@ export default function UnderstandingForm() {
           <IconButton aria-label="next" onClick={handleClickBack}>
             <ArrowBackIcon />
           </IconButton>
-
-          {/* <Button size="large">Home</Button> */}
-
           <Button
             aria-label="submit"
             variant="contained"
