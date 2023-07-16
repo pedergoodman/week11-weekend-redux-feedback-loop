@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./AdminTableItem.css";
+import axios from "axios";
 
 // material UI imports
 import { Button, Typography } from "@mui/material";
@@ -12,10 +13,11 @@ import Switch from "@mui/material/Switch";
 import Popper from "@mui/material/Popper";
 import Fade from "@mui/material/Fade";
 
-export default function AdminTableItem({ review }) {
+export default function AdminTableItem({ review, refreshReviewList }) {
   // POPOVER for delete functionality
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const [isFlagged, setIsFlagged] = useState(review.flagged);
 
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
@@ -25,12 +27,39 @@ export default function AdminTableItem({ review }) {
   const canBeOpen = open && Boolean(anchorEl);
   const id = canBeOpen ? "transition-popper" : undefined;
 
+  // MUI popper, "cancel button"
   const handleClose = () => {
     setAnchorEl(null);
   };
 
+  // MUI popper, "delete confirm button"
   const handleDelete = () => {
     console.log("DELETE DELETE DELETE");
+
+    axios
+      .delete(`/reviews/${review.id}`)
+      .then(result => {
+        refreshReviewList()
+      })
+      .catch(err => {
+        console.log('Error DELETINGing review', err);
+      });
+
+  };
+
+  // toggle flagged status
+  const toggleFlagged = event => {
+    setIsFlagged(event.target.checked);
+    console.log("isflagged is", isFlagged);
+
+    axios
+      .put(`/reviews/${review.id}`)
+      .then(result => {
+        refreshReviewList()
+      })
+      .catch(err => {
+        console.log('Error Updating flagged status', err);
+      });
   };
 
   return (
@@ -41,11 +70,11 @@ export default function AdminTableItem({ review }) {
       <TableCell align="right">{review.feeling}</TableCell>
       <TableCell align="right">{review.understanding}</TableCell>
       <TableCell align="right">{review.support}</TableCell>
-      <TableCell align="right">{review.comments}</TableCell>
+      <TableCell align="right">{review.comments ? `"${review.comments}"` : ''}</TableCell>
       <TableCell align="center">
         <Switch
-          // checked={checked}
-          // onChange={handleChange}
+          checked={isFlagged}
+          onChange={toggleFlagged}
           inputProps={{ "aria-label": "controlled" }}
         />
       </TableCell>
@@ -80,7 +109,7 @@ export default function AdminTableItem({ review }) {
                         ":hover": {
                           bgcolor: "#ababab",
                         },
-                        fontSize: "10px"
+                        fontSize: "10px",
                       }}
                       onClick={handleClose}
                     >
@@ -94,9 +123,9 @@ export default function AdminTableItem({ review }) {
                         ":hover": {
                           bgcolor: "rgb(255 0 0)",
                           color: "white",
-                          fontWeight: 700
+                          fontWeight: 700,
                         },
-                        fontSize: "10px"
+                        fontSize: "10px",
                       }}
                       onClick={handleDelete}
                     >

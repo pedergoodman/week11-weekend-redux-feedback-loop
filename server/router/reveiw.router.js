@@ -14,7 +14,7 @@ reviewRouter.get('/', (req, res) => {
     .then((result) => {
       res.send(result.rows);
     }).catch((err) => {
-      console.log('error GETting list from Database');
+      console.log('error GETting list from Database', err);
       res.sendStatus(500)
     });
 
@@ -24,7 +24,7 @@ reviewRouter.get('/', (req, res) => {
 
 // POST request (post review to server)
 reviewRouter.post('/', (req, res) => {
-  
+
   console.log(req.body);
   const survey = req.body
 
@@ -35,13 +35,13 @@ reviewRouter.post('/', (req, res) => {
 
   const queryParams = [survey.feeling, survey.understanding, survey.support, survey.comment]
 
-  
+
 
   pool.query(sqlText, queryParams)
     .then((result) => {
       res.sendStatus(201)
     }).catch((err) => {
-      console.log('error GETting list from Database');
+      console.log('error GETting list from Database', err);
       res.sendStatus(500)
     });
 
@@ -54,11 +54,33 @@ reviewRouter.post('/', (req, res) => {
 
 reviewRouter.delete('/:id', (req, res) => {
 
+  let queryParams = [req.params.id]
+  let sqlText = `DELETE FROM "feedback" WHERE "id" = $1`
+
+
+    pool.query(sqlText, queryParams)
+      .then((result) => {
+        res.sendStatus(200)
+      }).catch((err) => {
+        console.log('Error DELETINGing review', err);
+        res.sendStatus(500)
+      });
+
 });
 
 // PUT request (flag for further review)
 reviewRouter.put('/:id', (req, res) => {
+  let queryParams = [req.params.id]
+  let sqlText = `UPDATE "feedback" SET "flagged" = NOT "flagged" WHERE "id" = $1`
 
+
+  pool.query(sqlText, queryParams)
+    .then((result) => {
+      res.sendStatus(200)
+    }).catch((err) => {
+      console.log('error UPDATING flagged status', err);
+      res.sendStatus(500)
+    });
 });
 
 module.exports = reviewRouter;
