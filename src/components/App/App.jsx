@@ -44,13 +44,10 @@ function App() {
       <nav>
         <ul id="temp-nav">
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
             <Link to="/admin">Admin</Link>
           </li>
           <li>
-            <Link to="/feeling">Feeling</Link>
+            <Link to="/">Feeling</Link>
           </li>
           <li>
             <Link to="/understanding">Understanding</Link>
@@ -71,12 +68,8 @@ function App() {
       </nav>
 
       <Header />
-
+      
       <Route exact path="/">
-        <Home />
-      </Route>
-
-      <Route exact path="/feeling">
         <FeelingForm />
       </Route>
 

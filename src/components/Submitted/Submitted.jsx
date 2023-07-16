@@ -11,17 +11,11 @@ export default function Submitted() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const handleClickHome = () => {
-    // clear imputs and move to home page
+  const handleClickNewFeedback = () => {
+    // clear impute and move to home page
+
     dispatch({ type: "CLEAR" });
     history.push("/");
-  };
-
-  const handleClickNewFeedback = () => {
-    // clear imputs and move to home page
-
-    dispatch({ type: "CLEAR" });
-    history.push("/feeling");
   };
 
   return (
@@ -31,22 +25,14 @@ export default function Submitted() {
         <h2>Thanks for the feedback!</h2>
 
         <div className="submitted-btn-container">
-          {/* <Button size="large">Home</Button> */}
 
           <Button
+          
             aria-label="submit"
             variant="contained"
             onClick={handleClickNewFeedback}
           >
             Leave New Feedback
-          </Button>
-
-          <Button
-            aria-label="submit"
-            variant="contained"
-            onClick={handleClickHome}
-          >
-            Go Home
           </Button>
         </div>
       </Box>

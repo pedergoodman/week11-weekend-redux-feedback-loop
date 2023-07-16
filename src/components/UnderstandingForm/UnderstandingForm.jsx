@@ -58,7 +58,7 @@ export default function UnderstandingForm() {
 
   // handleClickBack function
   const handleClickBack = () => {
-    history.push("/feeling");
+    history.push("/");
   };
 
   return (

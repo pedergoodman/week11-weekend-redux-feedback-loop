@@ -22,7 +22,7 @@ export default function Admin({refreshReviewList}) {
       <TableContainer
         id="reviews-table-container"
         component={Paper}
-        sx={{ width: "90%", margin: "auto", backgroundClip: "#ae6767" }}
+        sx={{ width: "85%", margin: "auto", backgroundClip: "#ae6767" }}
       >
         <h2>Feedback Results</h2>
         
