@@ -101,7 +101,7 @@ function App() {
       </Route>
 
       <Route exact path="/admin">
-        <Admin />
+        <Admin  refreshReviewList={refreshReviewList} />
       </Route>
     </Router>
   );

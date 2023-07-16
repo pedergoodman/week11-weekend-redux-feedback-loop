@@ -1,20 +1,38 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import "./AdminTableItem.css";
 
 // material UI imports
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
+import { Button, Typography } from "@mui/material";
 import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Switch from "@mui/material/Switch";
-import Alert from "@mui/material/Alert";
+import Popper from "@mui/material/Popper";
+import Fade from "@mui/material/Fade";
 
 export default function AdminTableItem({ review }) {
+  // POPOVER for delete functionality
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+    setOpen(previousOpen => !previousOpen);
+  };
+
+  const canBeOpen = open && Boolean(anchorEl);
+  const id = canBeOpen ? "transition-popper" : undefined;
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleDelete = () => {
+    console.log("DELETE DELETE DELETE");
+  };
+
   return (
     <TableRow
       key={review.id}
@@ -32,13 +50,67 @@ export default function AdminTableItem({ review }) {
         />
       </TableCell>
       <TableCell align="center">
-        <IconButton aria-label="delete">
+        <IconButton
+          aria-label="delete"
+          aria-describedby={id}
+          variant="contained"
+          onClick={handleClick}
+        >
           <DeleteIcon />
+          <Popper
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            placement="top-end"
+            transition
+          >
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps} timeout={350}>
+                <Paper
+                  className="delete-alert"
+                  style={{ backgroundColor: "rgb(255 180 180)" }}
+                >
+                  <p>Are you sure?</p>
+                  <div>
+                    <Button
+                      className="cancel-delete"
+                      variant="contained"
+                      color="inherit"
+                      sx={{
+                        ":hover": {
+                          bgcolor: "#ababab",
+                        },
+                        fontSize: "10px"
+                      }}
+                      onClick={handleClose}
+                    >
+                      CANCEL
+                    </Button>
+                    <Button
+                      className="confirm-delete"
+                      variant="contained"
+                      color="inherit"
+                      sx={{
+                        ":hover": {
+                          bgcolor: "rgb(255 0 0)",
+                          color: "white",
+                          fontWeight: 700
+                        },
+                        fontSize: "10px"
+                      }}
+                      onClick={handleDelete}
+                    >
+                      DELETE
+                    </Button>
+                  </div>
+                </Paper>
+              </Fade>
+            )}
+          </Popper>
         </IconButton>
       </TableCell>
     </TableRow>
   );
-
 
   // <Alert severity="error">This is an error alert — check it out!</Alert>
 }

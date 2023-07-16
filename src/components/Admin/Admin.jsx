@@ -12,7 +12,7 @@ import Paper from "@mui/material/Paper";
 import Alert from "@mui/material/Alert";
 import AdminTableItem from "../AdminTableItem/AdminTableItem";
 
-export default function Admin() {
+export default function Admin({refreshReviewList}) {
   const reviewsList = useSelector(store => store.reviewsList);
 
   // console.log('reviewsList is:', reviewsList);
@@ -39,7 +39,7 @@ export default function Admin() {
           </TableHead>
           <TableBody>
             {reviewsList.map(review => (
-              <AdminTableItem key={review.id} review={review} />
+              <AdminTableItem key={review.id} review={review} refreshReviewList={refreshReviewList} />
             ))}
           </TableBody>
         </Table>

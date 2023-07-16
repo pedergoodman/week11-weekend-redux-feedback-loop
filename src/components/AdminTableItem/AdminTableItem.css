@@ -1,0 +1,26 @@
+.delete-alert {
+  padding: 6px 6px;
+  border: 1.5px solid rgb(202 53 53);
+}
+
+.delete-alert p {
+  margin: 8px 0;
+  text-align: center;
+  color: rgb(202 53 53);
+  font-weight: 400;
+}
+
+.delete-alert button {
+  font-size: 8;
+  padding: 4px 2px;
+  margin: 0 3px;
+}
+
+.delete-alert .cancel-delete {
+  background-color: rgb(202, 202, 202);
+}
+
+.delete-alert .confirm-delete {
+  background-color: rgb(202 53 53);
+  color: #efefef;
+}
