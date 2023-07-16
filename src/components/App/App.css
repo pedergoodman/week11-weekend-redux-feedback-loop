@@ -57,7 +57,7 @@ form h3 {
   justify-content: space-between;
 }
 
-.submitted-btn-container{ 
+.submitted-btn-container {
   margin: auto;
   height: 130px;
   display: flex;
@@ -66,15 +66,28 @@ form h3 {
   justify-content: space-between;
 }
 
-
 #submitted-container h2 {
   margin: 0px 0px 10px 0;
 }
 
-.home-btn-container{ 
+.home-btn-container {
   margin: auto;
   height: 130px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+#reviews-table-container {
+}
+
+#reviews-table-container th {
+  font-weight: 900;
+  background-color: red;
+}
+
+#reviews-table-container h2 {
+  background-color: red;
+  margin: auto;
+  padding: 25px 0 0 25px;
 }
