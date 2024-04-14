@@ -41,7 +41,7 @@ function App() {
   return (
     <Router>
       {/* TEMP Nav bar to help facilitate development */}
-{/*       <nav>
+      {/* <nav>
         <ul id="temp-nav">
           <li>
             <Link to="/admin">Admin</Link>
@@ -94,7 +94,7 @@ function App() {
       </Route>
 
       <Route exact path="/admin">
-        <Admin  refreshReviewList={refreshReviewList} />
+        <Admin refreshReviewList={refreshReviewList} />
       </Route>
     </Router>
   );
